@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
             
             */
            
-            const api = 'http://api.weatherstack.com/current?access_key=7020f37602440165ea716e8ef1272ccf&query=fetch:ip';
+            const api = 'https://api.weatherstack.com/current?access_key=7020f37602440165ea716e8ef1272ccf&query=fetch:ip';
             
             // The 'fetch' function with the 'api' variable passed to retrieve data in json format.
 
