@@ -1,7 +1,7 @@
 // Allows for DOM access - variables declared with 'let' allows for block scope (can be accessed outside of block).
 
 window.addEventListener("load", () => {
-    let long;
+    let lon;
     let lat;
 
     // Declaring variables for DOM classes.
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 
             // Variables assigned value from the Geolocation API - returns the users lattitude and longitude.
 
-            long = position.coords.longitude;
+            lon = position.coords.longitude;
             lat = position.coords.latitude;
            
             /* 
@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
             
             */
            
-            const api = 'https://api.weatherstack.com/current?access_key=7020f37602440165ea716e8ef1272ccf&query=fetch:ip';
+            const api = 'http://api.weatherstack.com/current?access_key=7020f37602440165ea716e8ef1272ccf&query=fetch:ip';
             
             // The 'fetch' function with the 'api' variable passed to retrieve data in json format.
 
@@ -55,7 +55,8 @@ window.addEventListener("load", () => {
                 // Declaring API parameter variables with API data point type. The shorthand syntax reduces from 'data.current'.
 
                 const { temperature, weather_descriptions } = data.current;
-                const { name, region } = data.location;
+                const { name } = data.location;
+                
                 
                 // Setting/Appending DOM HTML elements to API parameters to display retrieved data in the DOM
 
