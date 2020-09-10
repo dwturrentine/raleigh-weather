@@ -33,7 +33,8 @@ window.addEventListener("load", () => {
             */
            
             const api = 'https://api.openweathermap.org/data/2.5/weather?zip=27616,us&units=metric&appid=304e06fc96fd015ae8beec97315f12e2';
-            
+
+        
             // The 'fetch' function with the 'api' variable passed to retrieve data in json format.
 
             fetch(api)
