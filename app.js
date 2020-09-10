@@ -6,11 +6,11 @@ window.addEventListener("load", () => {
 
     // Declaring variables for DOM classes.
 
-    const cityName = document.querySelector(".city-name");
-    const degreeSection = document.querySelector(".temperature");
-    const temperatureDegree = document.querySelector(".temperature-degree");
-    const temperatureSpan = document.querySelector(".temperature span");
-    const temperatureDescription = document.querySelector(".temperature-description");
+    let cityName = document.querySelector(".city-name");
+    let degreeSection = document.querySelector(".temperature");
+    let temperatureDegree = document.querySelector(".temperature-degree");
+    let temperatureSpan = document.querySelector(".temperature span");
+    let temperatureDescription = document.querySelector(".temperature-description");
 
     // Used to ask user permision for location access.
 
@@ -29,12 +29,10 @@ window.addEventListener("load", () => {
             
             The 'api' variable is set to 'const' to allow the variable to be used with block scope properties, 
             but remain strongly-typed (unchangable).
-           
-            The Weatherstack API uses {fetch:ip} parameter to display the current weather for the users location.
             
             */
            
-            const api = 'http://api.weatherstack.com/current?access_key=7020f37602440165ea716e8ef1272ccf&query=fetch:ip';
+            const api = 'https://api.openweathermap.org/data/2.5/weather?zip=27616,us&units=metric&appid=304e06fc96fd015ae8beec97315f12e2';
             
             // The 'fetch' function with the 'api' variable passed to retrieve data in json format.
 
@@ -54,19 +52,21 @@ window.addEventListener("load", () => {
                 
                 // Declaring API parameter variables with API data point type. The shorthand syntax reduces from 'data.current'.
 
-                const { temperature, weather_descriptions } = data.current;
-                const { name } = data.location;
+                const { temp } = data.main;
+                const { name } = data;
+                const { description } = data.weather[0];
                 
                 
                 // Setting/Appending DOM HTML elements to API parameters to display retrieved data in the DOM
 
-                temperatureDegree.textContent = temperature;
-                temperatureDescription.textContent = weather_descriptions;
+                temperatureDegree.textContent = temp;
                 cityName.textContent = name;
+                temperatureDescription.textContent = description;
+
                 
                 // Formula for Fahrenheit.
 
-                const fahrenheit = (temperature * 9/5 + 32)
+                const fahrenheit = (temp * 9/5 + 32)
 
                 // To change temperature from Celsius to Fahrenheit by mouse click.
 
@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
                     }else{
 
                         temperatureSpan.textContent = "°C"
-                        temperatureDegree.textContent = temperature;
+                        temperatureDegree.textContent = temp;
                         
                     }  
                 });
@@ -88,3 +88,4 @@ window.addEventListener("load", () => {
         } 
     )}; 
 })
+
