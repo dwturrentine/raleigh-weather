@@ -29,6 +29,8 @@ window.addEventListener("load", () => {
             
             The 'api' variable is set to 'const' to allow the variable to be used with block scope properties, 
             but remain strongly-typed (unchangable).
+
+            The API is from Open Weather Map. 
             
             */
            
